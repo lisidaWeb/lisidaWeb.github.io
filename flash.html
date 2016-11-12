@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+* { box-sizing:border-box; }
+li { list-style:none; }
+body { background:#18b; padding:2em; animation:bg 60s infinite linear; }
+
+#fan { position:absolute; }
+.oscillator { height:8em; width:8em; position:absolute; animation:oscillate 8s infinite linear;  }
+    .guard { height:8em; width:8em; position:absolute; z-index:10; }
+      .frame { height:8em; width:8em; position:absolute; left:0; top:0; border:3px solid #000; border-radius:50%; }
+            li[class^="cir"] { position:absolute; border:2px solid #000; border-radius:50%;  z-index:12;}
+                .cir1 { height:7em; width:7em; left:0.5em; top:0.5em; }
+                .cir2 { height:6em; width:6em; left:1em; top:1em; }
+                .cir3 { height:5em; width:5em; left:1.5em; top:1.5em; }
+                .cir4 { height:4em; width:4em; left:2em; top:2em; }
+                .cir5 { height:3em; width:3em; left:2.5em; top:2.5em; }
+                .cir6 { height:2em; width:2em; left:3em; top:3em; background:radial-gradient(50% 30%, #222 0%, #000 100%); }
+            li[class^="bar"] { position:absolute; border:1px solid #000; transform:rotate(45deg); z-index:11; }
+                .bar1 { height:8em; position:absolute; left:50%; top:0; }
+                .bar2 { width:8em; position:absolute; top:50%; left:0; }
+    .blades { height:6em; width:6em; position:absolute; top:1em; left:1em; z-index:9; animation:blades 1s infinite linear; }
+        .blades li { height:3.25em; width:3.25em; position:absolute; border-radius:0 50% 100%; box-shadow:0 0 10px rgba(0,0,0,0.8); background:rgba(0,0,0,0.8); }
+        .b1 { top:3.5em; left:1.375em; transform:rotate(45deg); }
+        .b2 { top:0.25em; left:-0.5em; transform:rotate(165deg); }
+        .b3 { top:0.25em; left:3.25em; transform:rotate(285deg); }
+    .motor { height:2.25em; width:5em; display:block; position:absolute; top:2.875em; right:3.325em; z-index:8; background:#111 linear-gradient(top, #333 0%, #000 100%); border-radius:50% 20% 20% 50%;  animation:motor 8s infinite linear; }
+.base { height:2em; width:5em; position:absolute; top:11.5em; left:0.75em; z-index:5; border-radius:80%; background:#222; }
+    .base:before { height:2em; width:5em; position:absolute; top:-0.25em; left:0; z-index:5; border-radius:80%; content:''; display:block; background:linear-gradient(top, #333 0%, #000 100%); }
+    .base:after { height:6em; width:0.5em; position:absolute; top:-5.5em; left:2.25em; z-index:6; content:''; display:block; background:linear-gradient(top, #111 0%, #212121 100%); }
+/* Animation */
+@keyframes blades{ from{ transform: rotate(0deg); } to{ transform: rotate(360deg); } }
+@keyframes oscillate { 
+    0%{ transform:perspective(500px) rotateY(20deg); } 
+    50%{ transform:perspective(250px) rotateY(50deg); } 
+    100%{ transform:perspective(500px) rotateY(20deg); } 
+}
+@keyframes motor { 
+    0%{ width:2.5em; } 
+    50%{ width:5em; } 
+    100%{ width:2.5em; } 
+}
+@keyframes bg {
+  0%{ background:#05acd7; }
+  10%{ background:#1063c3; }
+  20%{ background:#fe80d7; }
+  30%{ background:#fe2193; }
+  40%{ background:#f62038; }
+  50%{ background:#f38051; }
+  60%{ background:#f4d84d; }
+  70%{ background:#e0eb68; }
+  80%{ background:#7cc04b; }
+  90%{ background:#7cd8b5; }
+  100%{ background:#00e1f3; }
+}</style>
+</head>
+<body>
+	<div id="fan">
+    <div class="oscillator">
+        <ul class="guard">
+            <li class="frame"></li>
+            <li class="cir1"></li>
+            <li class="cir2"></li>
+            <li class="cir3"></li>
+            <li class="cir4"></li>
+            <li class="cir5"></li>
+            <li class="cir6"></li>
+            <li class="bar1"></li>
+            <li class="bar2"></li>
+        </ul>
+        <ul class="blades">
+            <li class="b1"></li>
+            <li class="b2"></li>
+            <li class="b3"></li>
+        </ul>
+        <ul class="motor"></ul>
+    </div>
+    <div class="base"></div>
+</div>
+</body>
+</html>
