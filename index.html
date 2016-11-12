@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>送给静静的小飞机</title>
 	<style type="text/css">
         *{
     margin: 0;
@@ -622,37 +622,33 @@ body{
 	 <script src="js/jquery.js"></script>
     <script>
 $(function(){
-    // 纸飞机
-    
-    // 起飞
+
     $('.send').click(function() {
-        // 步骤一：隐藏面板、显示飞机、完成折叠效果
+        
         setTimeout(function() {
-            // 隐藏信息面板
+            
             $('#plane').removeClass('front');
-            // 翻转至正面
+            
             $('#wind_container').removeClass('beginning');
-            // 折叠效果（左翼、右翼）
+        
             $('.curvable').addClass('curved');
-            // 颜色变换
+        
             $("body").css({"background-color": "#54575A"});
 
-            // 步骤二：平放飞机
+            
             setTimeout(function() {
                 $('#wind_container').addClass('hover');
                 $("body").css({"background-color": "#AD8BD8"});
-
-                // 步骤三：飞机后退助跑
                 setTimeout(function() {
                     $('#wind_container').addClass('fly_away_first');
                     $("body").css({"background-color": "#6E99C4"});
 
-                    // 步骤四：飞机向前飞翔至消失
+        
                     setTimeout(function() {
                         $('#wind_container').addClass('fly_away');
                         $("body").css({"background-color": "#3F9BFF"});
 
-                        // 步骤五：飞机复位
+                    
                         setTimeout(function(){
                             $('#plane').addClass('front');
                             $('#wind_container').removeClass('fly_away fly_away_first hover').addClass('beginning');
@@ -666,7 +662,7 @@ $(function(){
     });
 
 
-    // 关闭弹窗
+    
     $("#plane_close").click(function(){
         $("#wind").fadeOut(200);
     });
@@ -677,7 +673,9 @@ $(function(){
 <body>
    <div id="wind">
         <div id="plane" class="front">  
-            <textarea class="message">人生路上，一路有你。送一只纸飞机给你，希望猪头你每天都能快乐幸福，</textarea>
+            <textarea class="message">猪头，一路上有你陪着我，很高兴，希望你每天都能快乐幸福！我就像这个纸飞机，.不论多远，只要你需要我的时候，我就会“飞”到你的身边。
+                                                 爱静静的男神~
+            </textarea>
             <button class="send"> 起飞 </button> <br/>
             <div id="plane_bottom">
                 <a href="javascript:;" id="plane_close"> X </a>
