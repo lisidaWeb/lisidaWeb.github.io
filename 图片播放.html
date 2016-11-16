@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin:0px;
+			padding:0px;
+		}
+		.box{
+			width:500px;
+			height: 300px;
+			overflow: hidden;
+		}
+		.picList{
+			width:2500px;
+		}
+		.picList li{
+			float: left;
+			list-style: none;
+		}
+		.box img{
+			width:500px;
+			height: 300px;
+		}
+		.numList li{
+			list-style: none;
+			width:20px;
+			height:20px;
+			border:1px solid blue;
+			text-align: center;
+			line-height: 20px;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<ul class="picList">
+			<li><img src="imges1/1.jpg" alt=""></li>
+			<li><img src="imges1/2.jpg" alt=""></li>
+			<li><img src="imges1/3.jpg" alt=""></li>
+			<li><img src="imges1/4.jpg" alt=""></li>
+			<li><img src="imges1/5.jpg" alt=""></li>
+		</ul>
+	</div>
+	<ul class="numList">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+
+	<script src="js/jquery.js"></script>
+	<script>
+		$(".numList li").click(function(){
+			var index = $(this).index();
+			$(".picList").animate({"margin-left":index*-500},500)
+		})
+
+		var n = 0;
+		function cycle(){
+			n++;
+			n = n===5 ? 0 : n;
+			$(".picList").animate({"margin-left":n*-500},500)
+		}
+
+		setInterval(cycle,1500);
+	</script>
+</body>
+</html>

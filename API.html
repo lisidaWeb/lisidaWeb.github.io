@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input class="place" type="text" value="请输入地名">
+	<button class="anniu">获取当地的地区信息</button>
+		<input class="place2" type="text" value="请输入地名">
+	<button class="anniu2">获取当地的天气预报</button>
+	<input class="place3" type="text" value="请输入手机号">
+	<button class="anniu3">获取手机归属地</button>
+	<input class="place4" type="text" value="请输入数量">
+	<button class="anniu4">想要图片数量</button>
+    <img  class="mt" src="" alt="">
+    <ul class="list"></ul>
+    <script src="js/jquery.js"></script>
+    <script>
+    $(".anniu").click(function(){
+    	var pl=$(".place").val();
+    	$.ajax({
+    		url: 'http://apis.baidu.com/apistore/weatherservice/citylist',
+    		type: 'get',
+    		headers:{
+    			 "apikey":"6eccb4dac83b04a4f4dcab58d3d77693"
+    		},
+    		data:{
+                  "cityname":pl 
+     	    }
+     	}).done(function(data) {
+     		var mes1= JSON.parse(data);
+    		console.log(mes1);
+        alert("获取数据成功")
+    	})
+    	
+    })
+        $(".anniu2").click(function(){
+    	var pl=$(".place2").val();
+    	$.ajax({
+    		url: "http://apis.baidu.com/apistore/weatherservice/weather",
+    		type: 'get',
+    		headers:{
+    			 "apikey":"6eccb4dac83b04a4f4dcab58d3d77693"
+    		},
+    		data:{
+                  "cityname":pl 
+     	    }
+     	}).done(function(data) {
+     		var mes2= JSON.parse(data);
+    		console.log(mes2);
+        alert("获取数据成功")
+    	})
+    	
+    })
+
+        $(".anniu3").click(function(){
+    	var pl=$(".place3").val();
+    	$.ajax({
+    		url: "http://apis.baidu.com/apistore/mobilenumber/mobilenumber",
+    		type: 'get',
+    		headers:{
+    			 "apikey":"6eccb4dac83b04a4f4dcab58d3d77693"
+    		},
+    		data:{
+                  "phone":pl 
+     	    }
+     	}).done(function(data) {
+     		var mes3= JSON.parse(data);
+    		console.log(mes3);
+        alert("获取数据成功")
+    	})
+    	
+    })  
+        $(".anniu4").click(function(){
+    	var pl=$(".place4").val();
+    	$.ajax({
+    		url: "http://apis.baidu.com/txapi/mvtp/meinv",
+    		type: 'get',
+    		headers:{
+    			 "apikey":"6eccb4dac83b04a4f4dcab58d3d77693"
+    		},
+    		data:{
+                  "num":pl 
+     	    }
+     	}).done(function(data) {
+     		var mes4= JSON.parse(data);
+     		console.log(mes4)
+        alert("获取数据成功")
+    	})
+    	
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
